@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="product"
+            type="com.example.praveenkn.ilovezappos.maincomponent.Product" />
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/coordinate_mainlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:fitsSystemWindows="true"
+        android:background="@color/color_light_grey"
+        tools:context="com.example.praveenkn.ilovezappos.maincomponent.ProductPageActivity">
+
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/searchLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:elevation="4dp"
+            android:padding="5dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+                <ImageView
+                    android:id="@+id/productsHeadText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:animateLayoutChanges="true"
+                    android:elevation="2dp"
+                    android:paddingTop="2dp"
+                    android:src="@drawable/zappos_trimmed" />
+
+                <android.support.v7.widget.SearchView
+                    android:id="@+id/productSearch"
+                    style="@style/MySearchViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignRight="@id/productsHeadText"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="right|center_vertical"
+
+                    android:imeOptions="flagNoExtractUi">
+
+                </android.support.v7.widget.SearchView>
+            </RelativeLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <include
+            android:id="@+id/includedContent"
+            layout="@layout/product_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/searchLayout"
+            android:visibility="invisible"
+            bind:product="@{product}" />
+
+        <RelativeLayout
+            android:id="@+id/noContentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/searchLayout"
+            android:animateLayoutChanges="true">
+
+            <ImageView
+                android:id="@+id/letsShopLogo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/design_shop_main" />
+
+        </RelativeLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="44dp"
+            android:visibility="gone"
+            app:backgroundTint="@color/colorPrimary"
+            app:fabSize="normal"
+            app:layout_anchor="@id/includedContent"
+            app:layout_anchorGravity="right|bottom"
+            app:pressedTranslationZ="12dp"
+            app:rippleColor="@color/colorAccent"
+            app:srcCompat="@drawable/ic_action_name" />
+
+        <TextView
+            android:id="@+id/productCountTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:background="@color/colorPrimary"
+            android:elevation="46dp"
+            android:padding="6dp"
+            android:shadowColor="@color/colorAccent"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:textColor="@android:color/white"
+            android:textSize="22dp"
+            android:visibility="gone"
+            app:layout_anchor="@id/fab"
+            app:layout_anchorGravity="top|left" />
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

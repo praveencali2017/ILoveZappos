@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="product"
+            type="com.example.praveenkn.ilovezappos.maincomponent.Product" />
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/content_product_page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/color_light_grey"
+        android:elevation="10dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.example.praveenkn.ilovezappos.maincomponent.ProductPageActivity"
+        tools:showIn="@layout/activity_product_page">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="30dp"
+            android:shadowColor="@color/colorAccent"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            card_view:cardElevation="4dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/productNameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary">
+
+                    <TextView
+                        android:id="@+id/productName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:elevation="3dp"
+                        android:gravity="center_horizontal"
+                        android:shadowColor="@color/color_light_grey"
+                        android:shadowDx="2"
+                        android:shadowDy="1"
+                        android:shadowRadius="3"
+                        android:text="@{product.productName}"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/text_size_medium" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/productImg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/productNameLayout"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="4dp"
+                    android:elevation="2dp" />
+
+                <TextView
+                    android:id="@+id/priceLabelTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/productImg"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Price"
+                    android:textSize="15dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/priceLabelTxt"
+                    android:animateLayoutChanges="true"
+                    android:orientation="horizontal"
+                    android:paddingBottom="4dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:weightSum="1">
+
+                    <TextView
+                        android:id="@+id/originalPriceTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="0.5"
+                        android:elevation="1dp"
+                        android:gravity="center"
+                        android:shadowColor="@android:color/black"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="2"
+                        android:text="@{product.originalPrice}"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/text_size_less_medium" />
+
+                    <TextView
+                        android:id="@+id/afterCutOff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/originalPriceTxt"
+                        android:layout_weight="0.5"
+                        android:elevation="1dp"
+                        android:gravity="center"
+                        android:shadowColor="@color/colorPrimary"
+                        android:shadowDx="1"
+                        android:shadowDy="1"
+                        android:shadowRadius="2"
+                        android:text="@{product.price}"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="@dimen/text_size_less_medium" />
+                </LinearLayout>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>
